@@ -51,11 +51,11 @@ const Header = () => {
           <div className="text-end">
             {isLoggedIn ? (
               <>
-                {/* <Link > */}
+                <Link to="/profile">
                   <button type="button" className="btn btn-primary me-2">
                     Profile
                   </button>
-                {/* </Link> */}
+                </Link>
                 {/* <Link> */}
                   <button
                     type="button"

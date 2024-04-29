@@ -51,8 +51,8 @@ const PostListProvider = ({ children }) => {
   const handleLogout = () => {
     setIsLoggedIn(false); 
     navigate("/Login"); 
-    setId("")
-    setPassword("")
+    // setId("")
+    // setPassword("")
   };
 
   const [fetching, setFeching] = useState(false);

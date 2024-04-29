@@ -7,6 +7,7 @@ import PostList from "./components/PostList.jsx";
 import WelcomeMessage from "./components/WelcomeMessage.jsx";
 import Login from "./components/Login.jsx";
 import SingUp from "./components/SingUp.jsx";
+import Profile from "./components/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         path: "/Sign-up",
         element: <SingUp />,
       },
+      {
+        path: "/profile",
+        element: <Profile/>
+      }
     ],
   },
 ]);
