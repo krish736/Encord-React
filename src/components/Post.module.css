@@ -1,0 +1,23 @@
+.post{
+    width: 80%;
+    margin: 20px auto;
+    background:  blanchedalmond;
+    border: 5px solid #5555;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.tags{
+    margin: 0px 2px;
+}
+
+.span{
+    margin-left: 5px;
+}
+
+.userid{
+    font-size: 15px;
+}

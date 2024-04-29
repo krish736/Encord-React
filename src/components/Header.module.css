@@ -1,0 +1,10 @@
+.header {
+    /* width: 100%; */
+    /* position: absolute; */
+    /* Add other styling as needed */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100vw - 280px);
+    z-index: 1000;
+}

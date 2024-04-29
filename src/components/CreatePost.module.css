@@ -1,0 +1,14 @@
+.createPost{
+    border: 5px solid #5555;
+    background:  blanchedalmond;
+    border-radius: 8px;
+    /* position: relative; */
+    padding: 25px;
+    width: 60%;
+    /* top: 70%; */
+    margin:   auto auto;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}

@@ -1,0 +1,14 @@
+.appContainer{
+    display: flex;
+    margin-left: 280px;
+    
+}
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background: #5555;
+    min-height: 100vh;
+    height: 100%;
+}
