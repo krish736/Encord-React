@@ -7,10 +7,10 @@ const Login = () => {
       <div className={styles.input}>
         <div class="form-floating">
           <input
-            type="email"
+            type="text"
             class="form-control"
             id="floatingInput"
-            placeholder="name@example.com"
+            placeholder="krish"
             fdprocessedid="oerdr8"
           />
           <label for="floatingInput">Username</label>
