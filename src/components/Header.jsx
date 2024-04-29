@@ -1,8 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { PostList } from "../store/post-list-store";
 
 const Header = () => {
+  const { isLoggedIn, handleLogout } = useContext(PostList);
+
+  const handleLogoutClick = () => {
+    handleLogout();
+  };
+
   return (
     <header className={`${styles.header} p-3 text-bg-dark`}>
       <div className="container">
@@ -40,21 +48,39 @@ const Header = () => {
             </li>
           </ul>
 
-          {/* <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" className="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search" />
-        </form> */}
-
           <div className="text-end">
-            <Link to="/Login">
-            <button type="button" className="btn btn-outline-light me-2">
-              Login
-            </button>
-            </Link>
-            <Link to="/Sign-up">
-            <button type="button" className="btn btn-primary">
-              Sign-up
-            </button>
-            </Link>
+            {isLoggedIn ? (
+              <>
+                {/* <Link > */}
+                  <button type="button" className="btn btn-primary me-2">
+                    Profile
+                  </button>
+                {/* </Link> */}
+                {/* <Link> */}
+                  <button
+                    type="button"
+                    className="btn btn-outline-light"
+                    onClick={handleLogoutClick}
+                  >
+                    Logout
+                  </button>
+                {/* </Link> */}
+              </>
+            ) : (
+              <>
+                {/* Not logged in: show login and signup links */}
+                <Link to="/Login">
+                  <button type="button" className="btn btn-outline-light me-2">
+                    Login
+                  </button>
+                </Link>
+                <Link to="/Sign-up">
+                  <button type="button" className="btn btn-primary">
+                    Sign-up
+                  </button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

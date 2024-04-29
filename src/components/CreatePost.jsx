@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 // import { Form, redirect } from "react-router-dom";
 
 const CreatePost = () => {
-  const { addPost } = useContext(PostList);
+  const { addPost, id } = useContext(PostList);
   const navigate = useNavigate();
 
   const useridELement = useRef();
@@ -14,12 +14,12 @@ const CreatePost = () => {
   const postTagsELement = useRef();
 
   const handlePostButton = () => {
-    const userid = useridELement.current.value;
+    // const userid = useridELement.current.value;
     const postTitle = postTitleELement.current.value;
     const postBody = postBodyELement.current.value;
     const postTags = postTagsELement.current.value.split(" ");
 
-    useridELement.current.value = "";
+    // useridELement.current.value = "";
     postTitleELement.current.value = "";
     postBodyELement.current.value = "";
     postTagsELement.current.value = "";
@@ -28,7 +28,7 @@ const CreatePost = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        userId: userid,
+        userId: id,
         title: postTitle,
         body: postBody,
         tags: postTags,
@@ -46,7 +46,7 @@ const CreatePost = () => {
 
   return (
     <div className={styles.createPost}>
-      <div className="mb-3">
+      {/* <div className="mb-3">
         <label htmlFor="userid" className="form-label">
           Username
         </label>
@@ -55,9 +55,9 @@ const CreatePost = () => {
           className="form-control"
           id="userid"
           placeholder="Your Username"
-          ref={useridELement}
+          // ref={useridELement}
         />
-      </div>
+      </div> */}
       <div className="mb-3">
         <label htmlFor="title" className="form-label">
           Post Title

@@ -17,7 +17,7 @@ const PostList = () => {
         <NoPost  />
       )}
       {!fetching && postList.map((post) => (
-        <Post key={post.id} post={post} />
+        <Post key={post.title} post={post} />
       ))}
     </div>
   );

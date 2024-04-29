@@ -1,9 +1,16 @@
 import { createContext, useReducer, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const PostList = createContext({
   postList: [],
   addPost: () => {},
   fetching: false,
+  handleSignUp: () => {},
+  id: "",
+  password: "",
+  handleLogin: () => {},
+  isLoggedIn: false,
+  handleLogout: () => {},
 });
 
 const PostListReducer = (currPostList, action) => {
@@ -24,9 +31,31 @@ const PostListProvider = ({ children }) => {
     []
   );
 
-  const [fetching, setFeching] = useState(false);
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate()
 
-  
+  const handleSignUp = (username, password) => {
+    console.log(username);
+    setId(username);
+    setPassword(password);
+  };
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    console.log(isLoggedIn);
+    navigate("/view-post")
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false); 
+    navigate("/Login"); 
+    setId("")
+    setPassword("")
+  };
+
+  const [fetching, setFeching] = useState(false);
 
   // const handleInitaliseButton = () => {
   //   fetch("https://dummyjson.com/posts")
@@ -76,6 +105,14 @@ const PostListProvider = ({ children }) => {
         postList: postList,
         addPost: addPost,
         fetching: fetching,
+        handleSignUp: handleSignUp,
+        id: id,
+        password: password,
+        handleLogin: handleLogin,
+        isLoggedIn:isLoggedIn,
+        handleLogout: handleLogout
+        // username: username,
+        // password: password,
       }}
     >
       {children}

@@ -1,12 +1,18 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import styles from "./SingUp.module.css";
+import { PostList } from "../store/post-list-store";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SingUp = () => {
+  const { handleSignUp } = useContext(PostList);
   const usernameElement = useRef();
   const passwordElement = useRef();
   const confirmPasswordElement = useRef();
+  const navigate = useNavigate();
+  // const [isSignedUp, setIsSignedUp] = useState(false);
 
-  const handleSignUp = () => {
+  const handleSignUpButton = () => {
     const username = usernameElement.current.value;
     const password = passwordElement.current.value;
     const confirmPassword = confirmPasswordElement.current.value;
@@ -17,7 +23,9 @@ const SingUp = () => {
     }
 
     if (password === confirmPassword) {
-      console.log(username, password, confirmPassword);
+      // console.log(username, password, confirmPassword);
+      handleSignUp(username, password);
+      navigate("/Login");
     } else {
       alert("Password does not match! Please enter again");
     }
@@ -65,11 +73,12 @@ const SingUp = () => {
           <label htmlFor="floatingPassword">Confirm Password</label>
         </div>
       </div>
+
       <button
         className="btn btn-primary w-100 py-2"
         type="button"
         fdprocessedid="pixm5e"
-        onClick={handleSignUp}
+        onClick={handleSignUpButton}
       >
         Sign Up
       </button>

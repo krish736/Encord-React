@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./Post.module.css";
 import { AiFillLike } from "react-icons/ai";
+import { PostList } from "../store/post-list-store";
 const Post = ({ post }) => {
   const [likeStatus, setLikeStatus] = useState(false);
   const [likes, setLikes] = useState(0);
-
+ const {id} = useContext(PostList)
   const handleLike = () => {
     setLikeStatus(!likeStatus);
     if (!likeStatus) {
@@ -44,7 +45,7 @@ const Post = ({ post }) => {
           <span
             className={`position-absolute top-0 start-0 translate-middle badge rounded-pill bg-primary ${styles.userid}`}
           >
-            {post.userid}
+            {post.userId}
           </span>
         </div>
       </div>
